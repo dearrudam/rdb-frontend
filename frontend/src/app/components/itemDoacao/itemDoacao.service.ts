@@ -5,12 +5,14 @@ import { MatSnackBar }from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { Observable, EMPTY } from 'rxjs';
 
+import { environment } from './../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ItemDoacaoService {  
 
-  baseUrl="http://localhost:3001";
+  baseUrl = environment.apiURL;
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {
 

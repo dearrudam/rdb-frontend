@@ -5,11 +5,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { environment } from './../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class EventosService {
-  baseUrl="http://localhost:3001";
+  baseUrl = environment.apiURL;
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {
 

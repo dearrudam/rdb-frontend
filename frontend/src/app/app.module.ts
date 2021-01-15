@@ -42,6 +42,12 @@ import { EventosDeleteComponent } from './components/eventos/eventos-delete/even
 import { EventosReadComponent } from './components/eventos/eventos-read/eventos-read.component';
 import { EventosUpdateComponent } from './components/eventos/eventos-update/eventos-update.component';
 
+// Env
+import { environment } from '../environments/environment';
+// Angular in memory
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeApiService } from './server/fake-api/fake-api.service';
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -75,6 +81,10 @@ registerLocaleData(localePt);
     MatButtonModule,
     MatSnackBarModule,
     HttpClientModule,
+    environment.production ? []: HttpClientInMemoryWebApiModule.forRoot(FakeApiService, {
+			passThruUnknownUrl: true,
+			dataEncapsulation: false
+		}),
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
